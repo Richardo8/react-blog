@@ -7,6 +7,7 @@ class Example extends Component {
         this.state = {
             date: new Date()
         }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(){
@@ -26,12 +27,20 @@ class Example extends Component {
         })
     }
 
+    handleClick(e){
+        e.preventDefault();
+        console.log('The link was clicked');
+    }
+
     render(){
         return (
             <div>
                 <h1>Hello, {this.props.name}</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
                 <FormattedData date={this.state.date}/>
+                <a href="#" onClick={this.handleClick}>
+                    Click Me
+                </a>
             </div>
         )
     }
