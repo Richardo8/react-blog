@@ -8,7 +8,7 @@ class Example extends Component {
             date: new Date(),
             isToggleOn: true,
         }
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(){
@@ -28,7 +28,7 @@ class Example extends Component {
         })
     }
 
-    handleClick(e){
+    handleClick = (e) => {
         e.preventDefault();
         console.log('The link was clicked');
         this.setState(prevState => ({
