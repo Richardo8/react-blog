@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormattedData from './FormattedData';
 
 class Example extends Component {
     constructor(props){
@@ -30,6 +31,7 @@ class Example extends Component {
             <div>
                 <h1>Hello, {this.props.name}</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <FormattedData date={this.state.date}/>
             </div>
         )
     }
