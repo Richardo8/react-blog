@@ -5,7 +5,8 @@ class Example extends Component {
     constructor(props){
         super(props);
         this.state = {
-            date: new Date()
+            date: new Date(),
+            isToggleOn: true,
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -30,6 +31,9 @@ class Example extends Component {
     handleClick(e){
         e.preventDefault();
         console.log('The link was clicked');
+        this.setState(prevState => ({
+            isToggleOn: !prevState.isToggleOn,
+        }))
     }
 
     render(){
@@ -41,6 +45,7 @@ class Example extends Component {
                 <a href="#" onClick={this.handleClick}>
                     Click Me
                 </a>
+                <h>{this.state.isToggleOn ? 'on' : 'off'}</h>
             </div>
         )
     }
