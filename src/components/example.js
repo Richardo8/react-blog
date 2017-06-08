@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormattedData from './FormattedData';
+import Greeting from './Greeting';
 
 class Example extends Component {
     constructor(props){
@@ -46,6 +47,7 @@ class Example extends Component {
                     Click Me
                 </a>
                 <h>{this.state.isToggleOn ? 'on' : 'off'}</h>
+                <Greeting isLoggedIn={this.state.isToggleOn}/>
             </div>
         )
     }
