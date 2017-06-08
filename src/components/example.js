@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormattedData from './FormattedData';
 import Greeting from './Greeting';
+import LogButton from './LogButton';
 
 class Example extends Component {
     constructor(props){
@@ -37,6 +38,18 @@ class Example extends Component {
         }))
     }
 
+    handleLoginClick = () => {
+        this.setState({
+            isToggleOn: true,
+        })
+    };
+
+    handleLogoutClick = () => {
+        this.setState({
+            isToggleOn: false
+        })
+    }
+
     render(){
         return (
             <div>
@@ -48,6 +61,7 @@ class Example extends Component {
                 </a>
                 <h>{this.state.isToggleOn ? 'on' : 'off'}</h>
                 <Greeting isLoggedIn={this.state.isToggleOn}/>
+                <LogButton handleLoginClick={this.handleLoginClick} handleLogoutClick={this.handleLogoutClick} isToggleOn={this.state.isToggleOn}/>
             </div>
         )
     }
