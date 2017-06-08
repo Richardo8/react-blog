@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormattedData from './FormattedData';
 import Greeting from './Greeting';
 import LogButton from './LogButton';
+import MailBox from './MailBox';
 
 class Example extends Component {
     constructor(props){
@@ -51,6 +52,7 @@ class Example extends Component {
     }
 
     render(){
+        const messages = ['React', 'JS', 'Vue']
         return (
             <div>
                 <h1>Hello, {this.props.name}</h1>
@@ -62,6 +64,7 @@ class Example extends Component {
                 <h>{this.state.isToggleOn ? 'on' : 'off'}</h>
                 <Greeting isLoggedIn={this.state.isToggleOn}/>
                 <LogButton handleLoginClick={this.handleLoginClick} handleLogoutClick={this.handleLogoutClick} isToggleOn={this.state.isToggleOn}/>
+                <MailBox unreadMessages={messages}/>
             </div>
         )
     }
