@@ -4,6 +4,7 @@ import Greeting from './Greeting';
 import LogButton from './LogButton';
 import MailBox from './MailBox';
 import WarningBanner from './WarningBanner';
+import Numbers from './Numbers';
 
 class Example extends Component {
     constructor(props){
@@ -67,6 +68,7 @@ class Example extends Component {
                 <LogButton handleLoginClick={this.handleLoginClick} handleLogoutClick={this.handleLogoutClick} isToggleOn={this.state.isToggleOn}/>
                 <MailBox unreadMessages={messages}/>
                 <WarningBanner warn={this.state.isToggleOn}/>
+                <Numbers numbers={[1,2,3,4,5]}/>
             </div>
         )
     }
