@@ -5,6 +5,7 @@ import LogButton from './LogButton';
 import MailBox from './MailBox';
 import WarningBanner from './WarningBanner';
 import Numbers from './Numbers';
+import Blog from './Keys/Blog';
 
 class Example extends Component {
     constructor(props){
@@ -12,6 +13,10 @@ class Example extends Component {
         this.state = {
             date: new Date(),
             isToggleOn: true,
+            posts: [
+                {id: 1, title: 'Hello World', content: 'Welcome to learning React'},
+                {id: 2, title: 'Installation', content: 'You can install React from npm'}
+            ]
         }
         // this.handleClick = this.handleClick.bind(this);
     }
@@ -69,6 +74,7 @@ class Example extends Component {
                 <MailBox unreadMessages={messages}/>
                 <WarningBanner warn={this.state.isToggleOn}/>
                 <Numbers numbers={[1,2,3,4,5]}/>
+                <Blog posts={this.state.posts}/>
             </div>
         )
     }
