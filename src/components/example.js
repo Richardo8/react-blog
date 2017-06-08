@@ -3,6 +3,7 @@ import FormattedData from './FormattedData';
 import Greeting from './Greeting';
 import LogButton from './LogButton';
 import MailBox from './MailBox';
+import WarningBanner from './WarningBanner';
 
 class Example extends Component {
     constructor(props){
@@ -65,6 +66,7 @@ class Example extends Component {
                 <Greeting isLoggedIn={this.state.isToggleOn}/>
                 <LogButton handleLoginClick={this.handleLoginClick} handleLogoutClick={this.handleLogoutClick} isToggleOn={this.state.isToggleOn}/>
                 <MailBox unreadMessages={messages}/>
+                <WarningBanner warn={this.state.isToggleOn}/>
             </div>
         )
     }
