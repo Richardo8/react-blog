@@ -6,6 +6,7 @@ import MailBox from './MailBox';
 import WarningBanner from './WarningBanner';
 import Numbers from './Numbers';
 import Blog from './Keys/Blog';
+import NameForm from './Forms/NameForm';
 
 class Example extends Component {
     constructor(props){
@@ -75,6 +76,7 @@ class Example extends Component {
                 <WarningBanner warn={this.state.isToggleOn}/>
                 <Numbers numbers={[1,2,3,4,5]}/>
                 <Blog posts={this.state.posts}/>
+                <NameForm/>
             </div>
         )
     }
