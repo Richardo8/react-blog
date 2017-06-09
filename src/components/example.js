@@ -7,6 +7,7 @@ import WarningBanner from './WarningBanner';
 import Numbers from './Numbers';
 import Blog from './Keys/Blog';
 import NameForm from './Forms/NameForm';
+import Reservation from "./Forms/Reservation";
 
 class Example extends Component {
     constructor(props){
@@ -77,6 +78,7 @@ class Example extends Component {
                 <Numbers numbers={[1,2,3,4,5]}/>
                 <Blog posts={this.state.posts}/>
                 <NameForm/>
+                <Reservation/>
             </div>
         )
     }
