@@ -44,4 +44,4 @@ class Reservation extends Component {
     }
 }
 
-export default Reservation;
+export default Reservation
