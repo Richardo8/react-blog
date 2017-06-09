@@ -8,6 +8,7 @@ import Numbers from './Numbers';
 import Blog from './Keys/Blog';
 import NameForm from './Forms/NameForm';
 import Reservation from "./Forms/Reservation";
+import Calculator from "./LiftingStateUp/Calculator";
 
 class Example extends Component {
     constructor(props){
@@ -79,6 +80,7 @@ class Example extends Component {
                 <Blog posts={this.state.posts}/>
                 <NameForm/>
                 <Reservation/>
+                <Calculator/>
             </div>
         )
     }
