@@ -8,7 +8,7 @@ function toFahrenheit(celsius) {
 
 function tryConvert(temperature, convert) {
     const input = parseFloat(temperature);
-    if(Number.isNan(input)){
+    if(Number.isNaN(input)){
         return '';
     }
     const output = convert(input);
