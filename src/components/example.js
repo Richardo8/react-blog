@@ -10,6 +10,7 @@ import NameForm from './Forms/NameForm';
 import Reservation from "./Forms/Reservation";
 import Calculator from "./LiftingStateUp/Calculator";
 import WelcomeDialog from "./CompositionInheritance/WelcomeDialog";
+import SplitPane from "./CompositionInheritance/SplitPane";
 
 class Example extends Component {
     constructor(props){
@@ -83,6 +84,7 @@ class Example extends Component {
                 <Reservation/>
                 <Calculator/>
                 <WelcomeDialog/>
+                {/*<SplitPane left={<Contacts/>} right={<Chat/>}/>*/}
             </div>
         )
     }
