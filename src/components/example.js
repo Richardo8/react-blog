@@ -9,6 +9,7 @@ import Blog from './Keys/Blog';
 import NameForm from './Forms/NameForm';
 import Reservation from "./Forms/Reservation";
 import Calculator from "./LiftingStateUp/Calculator";
+import WelcomeDialog from "./CompositionInheritance/WelcomeDialog";
 
 class Example extends Component {
     constructor(props){
@@ -81,6 +82,7 @@ class Example extends Component {
                 <NameForm/>
                 <Reservation/>
                 <Calculator/>
+                <WelcomeDialog/>
             </div>
         )
     }
