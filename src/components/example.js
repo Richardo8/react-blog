@@ -10,7 +10,8 @@ import NameForm from './Forms/NameForm';
 import Reservation from "./Forms/Reservation";
 import Calculator from "./LiftingStateUp/Calculator";
 import WelcomeDialog from "./CompositionInheritance/WelcomeDialog";
-import SplitPane from "./CompositionInheritance/SplitPane";
+// import SplitPane from "./CompositionInheritance/SplitPane";
+import FilterableProductTable from "./ThingkingInReact/FilterableProductTable";
 
 class Example extends Component {
     constructor(props){
@@ -21,9 +22,18 @@ class Example extends Component {
             posts: [
                 {id: 1, title: 'Hello World', content: 'Welcome to learning React'},
                 {id: 2, title: 'Installation', content: 'You can install React from npm'}
-            ]
+            ],
+            PRODUCT: [
+                {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+                {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
+                {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
+                {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
+                {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
+                {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+            ],
         }
         // this.handleClick = this.handleClick.bind(this);
+        this.getData = this.getData.bind(this);
     }
 
     componentDidMount(){
@@ -63,8 +73,13 @@ class Example extends Component {
         })
     }
 
+    async getData(){
+        return await fetch('./data.json');
+    }
+
     render(){
-        const messages = ['React', 'JS', 'Vue']
+        const messages = ['React', 'JS', 'Vue'];
+        const Products = this.getData();
         return (
             <div>
                 <h1>Hello, {this.props.name}</h1>
@@ -85,6 +100,7 @@ class Example extends Component {
                 <Calculator/>
                 <WelcomeDialog/>
                 {/*<SplitPane left={<Contacts/>} right={<Chat/>}/>*/}
+                <FilterableProductTable products={this.state.PRODUCT}/>
             </div>
         )
     }
