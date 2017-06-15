@@ -11,10 +11,22 @@ class FilterableProductTable extends Component {
         }
     }
 
+    handleFilterTextInput = (filterText) => {
+        this.setState({
+            filterText: filterText,
+        })
+    }
+
+    handleInStockInput = (inStockOnly) => {
+        this.setState({
+            inStockOnly: inStockOnly,
+        })
+    }
+
     render(){
         return (
             <div>
-                <SearchBar filterText={this.state.filterText} inStockOnly={this.state.inStockOnly}/>
+                <SearchBar filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} onFilterTextInput={this.handleFilterTextInput} onInStockInput={this.handleInStockInput}/>
                 <ProductTable products={this.props.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly}/>
             </div>
         )
