@@ -24,12 +24,7 @@ class Example extends Component {
                 {id: 2, title: 'Installation', content: 'You can install React from npm'}
             ],
             PRODUCT: [
-                {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
-                {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
-                {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
-                {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
-                {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
-                {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+
             ],
         }
         // this.handleClick = this.handleClick.bind(this);
@@ -41,6 +36,7 @@ class Example extends Component {
             () => this.tick(),
             1000
         )
+        this.getData();
     }
 
     componentWillUnmount(){
@@ -74,12 +70,17 @@ class Example extends Component {
     }
 
     async getData(){
-        return await fetch('./data.json');
+        let products =  await fetch('/api/data.json');
+        let newProducts = await products.json();
+        this.setState({
+            PRODUCT: newProducts.data,
+        })
     }
 
     render(){
         const messages = ['React', 'JS', 'Vue'];
-        const Products = this.getData();
+        // const Products = this.getData();
+        // console.log(Products)
         return (
             <div>
                 <h1>Hello, {this.props.name}</h1>
