@@ -10,6 +10,7 @@ class FilterableProductTable extends Component {
             inStockOnly: false
         }
     }
+
     render(){
         return (
             <div>
