@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Example from './components/example';
 import BasicExample from './RouterExample/RouterExample';
 import URLParameters from "./RouterExample/URLParameters/URLParameters";
+import AuthExample from "./RouterExample/Redirects/Redirects";
 import './App.css';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         {/*<Example name="L" />*/}
         <BasicExample/>
         <URLParameters/>
+          <AuthExample />
       </div>
     );
   }
