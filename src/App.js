@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Example from './components/example';
 import BasicExample from './RouterExample/RouterExample';
+import URLParameters from "./RouterExample/URLParameters/URLParameters";
 import './App.css';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         </p>
         {/*<Example name="L" />*/}
         <BasicExample/>
+        <URLParameters/>
       </div>
     );
   }
