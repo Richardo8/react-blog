@@ -4,6 +4,7 @@ import Example from './components/example';
 import BasicExample from './RouterExample/RouterExample';
 import URLParameters from "./RouterExample/URLParameters/URLParameters";
 import AuthExample from "./RouterExample/Redirects/Redirects";
+import CustomLinkExample from "./RouterExample/CutomLink/CustomLink"
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
         <BasicExample/>
         <URLParameters/>
           <AuthExample />
+          <CustomLinkExample />
       </div>
     );
   }
