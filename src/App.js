@@ -7,6 +7,7 @@ import AuthExample from "./RouterExample/Redirects/Redirects";
 import CustomLinkExample from "./RouterExample/CutomLink/CustomLink"
 import PreventingTransitionsExample from "./RouterExample/Preventing/Preventing"
 import NoMatchExample from "./RouterExample/NoMatch/NoMatch"
+import RecursiveExample from "./RouterExample/Recursive/Recursive"
 import './App.css';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
           <CustomLinkExample />
           <PreventingTransitionsExample/>
           <NoMatchExample/>
+          <RecursiveExample />
       </div>
     );
   }
