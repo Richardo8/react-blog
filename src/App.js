@@ -8,6 +8,7 @@ import CustomLinkExample from "./RouterExample/CutomLink/CustomLink"
 import PreventingTransitionsExample from "./RouterExample/Preventing/Preventing"
 import NoMatchExample from "./RouterExample/NoMatch/NoMatch"
 import RecursiveExample from "./RouterExample/Recursive/Recursive"
+import SidebarExample from "./RouterExample/Sidebar/Sidebar"
 import './App.css';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
           <PreventingTransitionsExample/>
           <NoMatchExample/>
           <RecursiveExample />
+          <SidebarExample/>
       </div>
     );
   }
