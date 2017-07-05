@@ -33,11 +33,11 @@ App.proptypes= {
 function selectTodos(todos, filter) {
     switch (filter) {
         case VisibilityFilters.SHOW_ALL:
-            return todos
+            return todos;
         case VisibilityFilters.SHOW_COMPLETED:
-            return todos.filter(todo => todo.completed)
+            return todos.filter(todo => todo.completed);
         case VisibilityFilters.SHOW_ACTIVE:
-            return todos.filter(todo => !todo.completed)
+            return todos.filter(todo => !todo.completed);
     }
 }
 
