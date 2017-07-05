@@ -4,7 +4,7 @@ export default class AddTodo extends Component {
     render() {
         return (
             <div>
-                <imput type="text" ref="input" />
+                <input type="text" ref="input" />
                 <button onClick={this.handleClick}>
                     Add
                 </button>

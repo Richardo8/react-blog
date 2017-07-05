@@ -44,8 +44,8 @@ function selectTodos(todos, filter) {
 function select(state) {
     return {
         visibleTodos: selectTodos(state.todos, state.visibilityFilter),
-        visibilityFilter: state.cisibilityFilter
+        visibilityFilter: state.visibilityFilter
     }
 }
 
-export default connect(select)(APP)
+export default connect(select)(App)

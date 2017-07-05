@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import todoApp from './Redux/reducers';
 import logo from './logo.svg';
+import App1 from './containers/App';
 import Example from './components/example';
 import BasicExample from './RouterExample/RouterExample';
 import URLParameters from "./RouterExample/URLParameters/URLParameters";
@@ -10,6 +14,8 @@ import NoMatchExample from "./RouterExample/NoMatch/NoMatch"
 import RecursiveExample from "./RouterExample/Recursive/Recursive"
 import SidebarExample from "./RouterExample/Sidebar/Sidebar"
 import './App.css';
+
+let store = createStore(todoApp);
 
 class App extends Component {
   render() {
@@ -31,6 +37,9 @@ class App extends Component {
           <NoMatchExample/>
           <RecursiveExample />
           <SidebarExample/>
+          <Provider store={store}>
+              <App1 />
+          </Provider>
       </div>
     );
   }

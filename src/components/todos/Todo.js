@@ -16,7 +16,7 @@ export default class Todo extends Component {
 }
 
 Todo.propTypes = {
-    onCLick: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
 }
