@@ -31,7 +31,7 @@ export default class Footer extends Component {
     }
 }
 
-Footer.PropTypes = {
+Footer.propTypes = {
     onFilterChange: PropTypes.func.required,
     filter: PropTypes.oneOf([
         'SHOW_ALL',
