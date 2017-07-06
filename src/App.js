@@ -16,10 +16,10 @@ import RecursiveExample from "./RouterExample/Recursive/Recursive"
 import SidebarExample from "./RouterExample/Sidebar/Sidebar"
 import './App.css';
 
-let store = createStore(
-    todoApp,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// let store = createStore(
+//     todoApp,
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 class App extends Component {
   render() {
@@ -41,9 +41,9 @@ class App extends Component {
           <NoMatchExample/>
           <RecursiveExample />
           <SidebarExample/>
-          <Provider store={store}>
-              <App1 />
-          </Provider>
+          {/*<Provider store={store}>*/}
+              {/*<App1 />*/}
+          {/*</Provider>*/}
           <Root />
       </div>
     );
