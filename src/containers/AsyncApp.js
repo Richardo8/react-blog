@@ -45,7 +45,7 @@ class AsyncApp extends Component {
                    }
                    {!isFetching &&
                        <a href="#"
-                          onCLick={this.handleRefreshClick}>
+                          onClick={this.handleRefreshClick}>
                            Refresh
                        </a>
                    }

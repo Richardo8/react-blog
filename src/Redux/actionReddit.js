@@ -36,8 +36,8 @@ function receivePosts(subreddit, json) {
 function fetchPosts(subreddit) {
     return dispatch => {
         dispatch(requestPosts(subreddit))
-        return fetch(`http://www.reddit.com/r/${subreddit}.json`)
-            .then(response => response.json)
+        return fetch(`/api/${subreddit}.json`)
+            .then(response => response.json())
             .then(json => dispatch(receivePosts(subreddit, json)))
     }
 }
