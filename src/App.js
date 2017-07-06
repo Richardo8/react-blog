@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import todoApp from './Redux/reducers';
 import logo from './logo.svg';
 import App1 from './containers/App';
+import Root from './containers/Root';
 import Example from './components/example';
 import BasicExample from './RouterExample/RouterExample';
 import URLParameters from "./RouterExample/URLParameters/URLParameters";
@@ -43,6 +44,7 @@ class App extends Component {
           <Provider store={store}>
               <App1 />
           </Provider>
+          <Root />
       </div>
     );
   }
