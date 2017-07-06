@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Root from '../containers/Root';
+
 
 const BasicExample = () => (
     <Router>
@@ -10,7 +12,7 @@ const BasicExample = () => (
                 <li><Link to="/topics">Topics</Link></li>
             </ul>
             <hr/>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Root}/>
             <Route path="/about" component={About}/>
             <Route path="/topics" component={Topics}/>
         </div>
