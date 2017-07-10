@@ -37,11 +37,17 @@ const loggerMiddleware = createLogger();
 //     return createStore(rootReducer, initialState, createStoreWithMiddleware)
 // }
 
-const createStoreWithMiddleware = compose(applyMiddleware(
+// 判断是否有redux devtools 如果有则compose，没有则不
+const createStoreWithMiddleware = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() ? compose(applyMiddleware(
     thunkMiddleware,
     loggerMiddleware,
     historyMiddleware
-), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore)
+), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore) :
+    applyMiddleware(
+        thunkMiddleware,
+        loggerMiddleware,
+        historyMiddleware
+    )(createStore)
 
 export default function configureStore(initialState) {
     return createStoreWithMiddleware(rootReducer, initialState)
