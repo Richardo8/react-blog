@@ -4,12 +4,16 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import AsyncApp from '../containers/AsyncApp'
 import configureStore from '../Redux/configureStore';
-const store = configureStore();
+import { ConnectedRouter } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory'
 
+const history = createHistory();
+
+const store = configureStore();
 
 const BasicExample = () => (
     <Provider  store={store}>
-        <Router>
+        <ConnectedRouter history={history}>
             <div>
                 <ul>
                     <li><Link to="/">Home</Link></li>
@@ -21,7 +25,7 @@ const BasicExample = () => (
                 <Route path="/about" component={About}/>
                 <Route path="/topics" component={Topics}/>
             </div>
-        </Router>
+        </ConnectedRouter>
     </Provider>
 )
 

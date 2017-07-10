@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS } from './actionReddit';
+import { routerReducer } from 'react-router-redux';
 
 function selectedSubreddit(state = 'reactjs', action) {
     switch (action.type) {
@@ -50,9 +51,11 @@ function postsBySubreddit(state = { }, action) {
     }
 }
 
+// 正确的方式是在reducer的文件中直接组合所有reducers
 const rootReducer = combineReducers({
     postsBySubreddit,
-    selectedSubreddit
+    selectedSubreddit,
+    routerReducer
 })
 
 export default rootReducer

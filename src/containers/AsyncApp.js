@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '../Redux/actionReddit';
 import Picker from '../components/reddit/Picker'
 import Posts from '../components/reddit/Posts';
+import { push } from 'react-router-redux';
 
 class AsyncApp extends Component {
+
     componentDidMount() {
         const { dispatch, selectedSubreddit } = this.props
         dispatch(fetchPostsIfNeeded(selectedSubreddit))
+        dispatch(push('Home'))
     }
 
     componentWillReceiveProps(nextProps) {
@@ -75,6 +78,7 @@ AsyncApp.propTypes = {
 }
 
 function mapStateToProps(state) {
+    // console.log(state);
     const { selectedSubreddit, postsBySubreddit } = state;
     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
         isFetching: true,
@@ -89,4 +93,5 @@ function mapStateToProps(state) {
     }
 }
 
+// export default AsyncApp;
 export default connect(mapStateToProps)(AsyncApp);

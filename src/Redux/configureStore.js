@@ -1,7 +1,13 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import rootReducer from './reducersReddit';
+import { routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+
+const history = createHistory();
+
+const historyMiddleware = routerMiddleware(history);
 
 const loggerMiddleware = createLogger();
 
@@ -31,12 +37,14 @@ const loggerMiddleware = createLogger();
 //     return createStore(rootReducer, initialState, createStoreWithMiddleware)
 // }
 
-
 const createStoreWithMiddleware = compose(applyMiddleware(
     thunkMiddleware,
-    loggerMiddleware
+    loggerMiddleware,
+    historyMiddleware
 ), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore)
 
 export default function configureStore(initialState) {
     return createStoreWithMiddleware(rootReducer, initialState)
+    // 这种写法的错误在于rootReducer是已经经过combineReducers加强的reducer，此时在组合router: routerReducer会出现错误
+    // return createStoreWithMiddleware(combineReducers({...rootReducer, router: routerReducer}), initialState)
 }
