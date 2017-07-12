@@ -40,12 +40,12 @@ const loggerMiddleware = createLogger();
 // 判断是否有redux devtools 如果有则compose，没有则不
 const createStoreWithMiddleware = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() ? compose(applyMiddleware(
     thunkMiddleware,
-    loggerMiddleware,
+    // loggerMiddleware,
     historyMiddleware
 ), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore) :
     applyMiddleware(
         thunkMiddleware,
-        loggerMiddleware,
+        // loggerMiddleware,
         historyMiddleware
     )(createStore)
 

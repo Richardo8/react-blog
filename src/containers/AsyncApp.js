@@ -1,13 +1,27 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '../Redux/actionReddit';
 import Picker from '../components/reddit/Picker'
 import Posts from '../components/reddit/Posts';
 import { push } from 'react-router-redux';
+import PropTypes from 'prop-types'
 
 // 试用装饰器的用法 装饰器实际就是修改类的行为，包括参数，方法。在这个例子中，实际意义就是mapStateToProps方法返回了这个组件需要的参数
 // 利用装饰器将这些参数放在类中由类来使用。
-@connect(mapStateToProps)
+@connect(state => {
+    console.log(state);
+    const { selectedSubreddit, postsBySubreddit } = state;
+    const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
+        isFetching: true,
+        items: []
+    }
+    return {
+        selectedSubreddit,
+        posts,
+        isFetching,
+        lastUpdated
+    }
+})
 class AsyncApp extends Component {
 
     componentDidMount() {
@@ -80,14 +94,21 @@ AsyncApp.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
+AsyncApp.defaultProps = {
+    posts: [],
+    isFetching: false,
+    dispatch: function () {
+        
+    },
+    selectedSubreddit: 'state'
+}
+
 function mapStateToProps(state) {
-    console.log(this.props)
     const { selectedSubreddit, postsBySubreddit } = state;
     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
         isFetching: true,
         items: []
     }
-
     return {
         selectedSubreddit,
         posts,
