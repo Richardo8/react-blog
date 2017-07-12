@@ -8,20 +8,20 @@ import PropTypes from 'prop-types'
 
 // 试用装饰器的用法 装饰器实际就是修改类的行为，包括参数，方法。在这个例子中，实际意义就是mapStateToProps方法返回了这个组件需要的参数
 // 利用装饰器将这些参数放在类中由类来使用。
-@connect(state => {
-    console.log(state);
-    const { selectedSubreddit, postsBySubreddit } = state;
-    const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
-        isFetching: true,
-        items: []
-    }
-    return {
-        selectedSubreddit,
-        posts,
-        isFetching,
-        lastUpdated
-    }
-})
+// @connect(state => {
+//     console.log(state);
+//     const { selectedSubreddit, postsBySubreddit } = state;
+//     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
+//         isFetching: true,
+//         items: []
+//     }
+//     return {
+//         selectedSubreddit,
+//         posts,
+//         isFetching,
+//         lastUpdated
+//     }
+// })
 class AsyncApp extends Component {
 
     componentDidMount() {
@@ -94,16 +94,17 @@ AsyncApp.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
-AsyncApp.defaultProps = {
-    posts: [],
-    isFetching: false,
-    dispatch: function () {
-        
-    },
-    selectedSubreddit: 'state'
-}
+// AsyncApp.defaultProps = {
+//     posts: [],
+//     isFetching: false,
+//     dispatch: function () {
+//
+//     },
+//     selectedSubreddit: 'state'
+// }
 
 function mapStateToProps(state) {
+    console.log(state);
     const { selectedSubreddit, postsBySubreddit } = state;
     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
         isFetching: true,
@@ -117,5 +118,5 @@ function mapStateToProps(state) {
     }
 }
 
-export default AsyncApp;
-// export default connect(mapStateToProps)(AsyncApp);
+// export default AsyncApp;
+export default connect(mapStateToProps)(AsyncApp);
