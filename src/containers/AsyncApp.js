@@ -8,20 +8,21 @@ import PropTypes from 'prop-types'
 
 // 试用装饰器的用法 装饰器实际就是修改类的行为，包括参数，方法。在这个例子中，实际意义就是mapStateToProps方法返回了这个组件需要的参数
 // 利用装饰器将这些参数放在类中由类来使用。
-// @connect(state => {
-//     console.log(state);
-//     const { selectedSubreddit, postsBySubreddit } = state;
-//     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
-//         isFetching: true,
-//         items: []
-//     }
-//     return {
-//         selectedSubreddit,
-//         posts,
-//         isFetching,
-//         lastUpdated
-//     }
-// })
+@connect((state, dispatch) => {
+    console.log(state);
+    console.log(dispatch);
+    const { selectedSubreddit, postsBySubreddit } = state;
+    const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
+        isFetching: true,
+        items: []
+    }
+    return {
+        selectedSubreddit,
+        posts,
+        isFetching,
+        lastUpdated
+    }
+})
 class AsyncApp extends Component {
 
     componentDidMount() {
@@ -103,20 +104,20 @@ AsyncApp.propTypes = {
 //     selectedSubreddit: 'state'
 // }
 
-function mapStateToProps(state) {
-    console.log(state);
-    const { selectedSubreddit, postsBySubreddit } = state;
-    const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
-        isFetching: true,
-        items: []
-    }
-    return {
-        selectedSubreddit,
-        posts,
-        isFetching,
-        lastUpdated
-    }
-}
+// function mapStateToProps(state) {
+//     console.log(state);
+//     const { selectedSubreddit, postsBySubreddit } = state;
+//     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[selectedSubreddit] || {
+//         isFetching: true,
+//         items: []
+//     }
+//     return {
+//         selectedSubreddit,
+//         posts,
+//         isFetching,
+//         lastUpdated
+//     }
+// }
 
-// export default AsyncApp;
-export default connect(mapStateToProps)(AsyncApp);
+export default AsyncApp;
+// export default connect(mapStateToProps)(AsyncApp);
