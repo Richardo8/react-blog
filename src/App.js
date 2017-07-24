@@ -15,6 +15,8 @@ import NoMatchExample from "./RouterExample/NoMatch/NoMatch"
 import RecursiveExample from "./RouterExample/Recursive/Recursive"
 import SidebarExample from "./RouterExample/Sidebar/Sidebar"
 import './App.css';
+import CustomTextInput from "./components/Ref/CustomTextInput";
+import RefParent from "./components/Ref/RefParent";
 
 
 // let store = createStore(
@@ -35,6 +37,8 @@ class App extends Component {
         {/*</p>*/}
         {/*<Example name="L" />*/}
         <BasicExample/>
+        {/*<CustomTextInput/>*/}
+        <RefParent/>
         {/*<URLParameters/>*/}
           {/*<AuthExample />*/}
           {/*<CustomLinkExample />*/}
